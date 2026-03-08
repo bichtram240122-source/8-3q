@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Thiệp chúc 8/3</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Charm&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+background:linear-gradient(135deg,#a8e6a3,#ffd6e0);
+text-align:center;
+padding:40px 15px;
+font-family:'Charm', cursive;
+overflow-x:hidden;
+}
+
+.box{
+background:white;
+max-width:600px;
+margin:auto;
+padding:30px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+position:relative;
+z-index:2;
+}
+
+h1{
+color:#d81b60;
+font-family:'Charm', cursive;
+}
+
+input{
+padding:10px;
+font-size:16px;
+border-radius:8px;
+border:1px solid #ccc;
+width:70%;
+max-width:300px;
+font-family:"Times New Roman",serif;
+}
+
+button{
+margin-top:15px;
+padding:10px 18px;
+font-size:16px;
+border:none;
+border-radius:8px;
+background:#e75480;
+color:white;
+cursor:pointer;
+font-family:"Times New Roman",serif;
+}
+
+button:hover{
+background:#d81b60;
+}
+
+/* bài thơ */
+
+#loichuc{
+margin-top:25px;
+font-size:20px;
+line-height:1.25;
+white-space:pre-line;
+color:#5a2a3b;
+font-family:"Times New Roman",serif;
+}
+
+.quynh{
+color:#5a2a3b;
+}
+
+#bai2{
+margin-top:20px;
+font-size:19px;
+line-height:1.35;
+font-family:"Times New Roman",serif;
+}
+
+.hidden{
+display:none;
+}
+
+#special{
+margin-top:15px;
+font-size:24px;
+color:#e91e63;
+font-family:'Charm', cursive;
+}
+
+/* hoa rơi */
+
+.flower{
+position:fixed;
+top:-40px;
+font-size:20px;
+animation:fall linear infinite;
+opacity:0.8;
+z-index:1;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-50px) rotate(0deg);
+}
+
+100%{
+transform:translateY(110vh) rotate(360deg);
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>🌸 Chúc mừng ngày 8/3 🌸</h1>
+
+<p>Nhập tên người bạn muốn gửi lời chúc</p>
+
+<input id="ten" placeholder="Nhập tên...">
+
+<br>
+
+<button onclick="chuc()">Nhận lời chúc</button>
+
+<div id="special" class="hidden">
+🌸 Dành riêng cho Quỳnh 🌸
+</div>
+
+<div id="loichuc"></div>
+
+<button id="them" class="hidden" onclick="themBai()">
+Đọc thêm 1 bài khác của Trâm
+</button>
+
+<div id="bai2" class="hidden"></div>
+
+</div>
+
+<script>
+
+function startFlowers(){
+
+for(let i=0;i<30;i++){
+
+let flower=document.createElement("div");
+
+flower.className="flower";
+flower.innerHTML="🌸";
+
+flower.style.left=Math.random()*100+"vw";
+flower.style.animationDuration=(6+Math.random()*6)+"s";
+flower.style.fontSize=(18+Math.random()*18)+"px";
+
+document.body.appendChild(flower);
+
+}
+
+}
+
+function chuc(){
+
+let name=document.getElementById("ten").value.trim().toLowerCase();
+
+let loichuc=document.getElementById("loichuc");
+let them=document.getElementById("them");
+let bai2=document.getElementById("bai2");
+let special=document.getElementById("special");
+
+them.classList.add("hidden");
+bai2.classList.add("hidden");
+
+if(
+name==="quỳnh" ||
+name==="quynh" ||
+name==="xuân quỳnh" ||
+name==="xuan quynh" ||
+name==="đinh thị xuân quỳnh" ||
+name==="dinh thi xuan quynh"
+){
+
+special.classList.remove("hidden");
+
+startFlowers();
+
+loichuc.innerText=
+`Có những người
+đi ngang qua cuộc đời,
+cũng có người
+ở lại rất lâu trong lòng.
+
+Quỳnh à —
+tụi mình quen biết nhau đã một thời,
+mà tui vẫn thương Quỳnh nhiều như ngày đầu.
+
+Có lẽ vì vậy
+giữa vạn người,Quỳnh vẫn luôn là
+một người đặc biệt với tui.
+
+Trâm chúc Quỳnh
+một tháng Ba thật dịu dàng,
+và một ngày 8/3
+đầy ắp niềm vui.
+
+— Chúc Quỳnh 8/3 thật vui 🌷 —`;
+
+them.classList.remove("hidden");
+
+}
+
+else{
+
+loichuc.innerText=
+`Chúc 8/3 thật rực rỡ nha. Mong là hôm nay bạn được cưng chiều một chút, cười nhiều một chút và hạnh phúc nhiều thật nhiều.`;
+
+}
+
+}
+
+function themBai(){
+
+let bai2=document.getElementById("bai2");
+
+bai2.innerText=
+`Quỳnh à, hôm nay là 8/3 rồi. Tui chỉ muốn chúc Quỳnh có một ngày thật vui và thật nhiều niềm vui nhỏ trong ngày. Mong rằng cuộc sống sẽ luôn dịu dàng với Quỳnh để mỗi ngày trôi qua đều có thêm một chút hạnh phúc, một chút bình yên. Quỳnh sẽ luôn gặp những điều tốt đẹp, học hành thuận lợi và lúc nào cũng giữ được sự tự tin của mình. Cảm ơn Quỳnh vì đã luôn ở đó trong những lúc bình thường nhất, đôi khi chỉ là vài câu nói chuyện hay một lần gặp nhau thôi cũng đủ làm ngày đó trở nên dễ chịu hơn. Chúc Quỳnh có một ngày 8/3 thật trọn vẹn và một tháng Ba thật nhẹ nhàng nhé. 🌷`;
+
+bai2.classList.remove("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
